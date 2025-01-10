@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты</title>
+</head>
+<body>
+    <h1>Рецепты</h1>
+    {% for recipes in recipe %}
+<p> {{ recipes.recipe }}  {{ recipes.author }}</p>
+    {% endfor %}
+</body>
+</html>

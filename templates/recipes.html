@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список рецептов</title>
+</head>
+<body>
+    <h1>Список рецептов</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button>Отправить</button>
+    </form>
+</body>
+</html>
