@@ -6,8 +6,8 @@
 </head>
 <body>
     <h1>Рецепты</h1>
-    {% for recipes in recipe %}
-<p> {{ recipes.recipe }}  {{ recipes.author }}</p>
+    {% for recipe in recipe %}
+        <p> {{ recipe.recipes|truncatewords:10 }}  {{ recipe.author }}</p>
     {% endfor %}
 </body>
 </html>
