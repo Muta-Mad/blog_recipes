@@ -1,9 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Рецепты</h1>
-    {% for recipe in recipe %}
-    <p> {{ recipe.recipes|truncatechars:10 }}</p>
-    {% endfor %}
-{% endblock %}
+    <style>
+        .recipe-list {
+            list-style-type: none; /* Убирает точки */
+            padding-left: 0; /* Убирает отступ слева, который браузер добавляет по умолчанию */
+        }
+    </style>
 
+    <h1>Рецепты</h1>
+    <ul class="recipe-list">  <!-- Обернули в <ul> с классом recipe-list -->
+    {% for recipe in recipe %}
+        <li><h4>{{ recipe.recipes|truncatewords:30 }}</h4></li>
+        <div>
+            <a href="{% url 'main:detail' recipe.id %}">Подробнее...</a>
+        </div>
+    {% endfor %}
+    </ul>
+{% endblock %}

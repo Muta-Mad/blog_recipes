@@ -21,7 +21,7 @@ def recipes_list(request):
     return render(request, 'main/recipes_list.html', context)
 
 
-def recipes_detail(request, id):
-    recipe = get_object_or_404(Recipe, pk=id)
+def recipes_detail(request, pk):
+    recipe = get_object_or_404(Recipe, id=pk)
     context = {'recipe': recipe}
     return render(request, 'main/recipes_detail.html', context)

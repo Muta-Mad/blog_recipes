@@ -1,27 +1,53 @@
-<header>
-    <nav class="navbar shadow-sm">
-      <div class="container">
-        {% with request.resolver_match.view_name as view_name %}
-          <ul class="nav nav-pills">
-            <li class="nav-item">
-              <a class="nav-link {% if view_name == 'home_page:home_page' %} active {% endif %}"
-                href="{% url 'home_page:home_page' %}">
-                Главная
-              </a>
-            </li>
-                <li class="nav-item">
-                  <a class="nav-link {% if view_name == 'main:recipe' %} active {% endif %}"
-                    href="{% url 'main:recipe' %}">
-                    Создать Рецепты
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link {% if view_name == 'main:list' %} active {% endif %}" href="{% url 'main:list' %}">
-                Cписок Рецептов
-              </a>
-            </li>
-          </ul>
-        {% endwith %}
-      </div>
-    </nav>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменение цвета в Bootstrap</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbar-custom {
+            background-color: #228B22 !important; /* Зеленый (forestgreen) */
+        }
+        .nav-link-custom {
+            color: #ffffff !important; /* Светло-зеленый (honeydew) */
+        }
+         .nav-link-custom:hover {
+            color: #fff !important; /* Белый текст при наведении */
+        }
+        .nav-link-custom.active {
+            color: #228B22 !important; /* Темно-зеленый текст для активного элемента */
+             background-color: #F0FFF0 !important; /* Светло-зеленый фон для активного элемента */
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <nav class="navbar shadow-sm navbar-custom">
+        <div class="container">
+          {% with request.resolver_match.view_name as view_name %}
+            <ul class="nav nav-pills justify-content-start"> <!-- Добавили justify-content-start -->
+              <li class="nav-item">
+                <a class="nav-link nav-link-custom {% if view_name == 'home_page:home_page' %} active {% endif %}"
+                  href="{% url 'home_page:home_page' %}">
+                  <h2>Главная</h2>
+                </a>
+              </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav-link-custom {% if view_name == 'main:recipe' %} active {% endif %}"
+                      href="{% url 'main:recipe' %}">
+                      <h2>Создать Рецепты</h2>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-custom {% if view_name == 'main:list' %} active {% endif %}" href="{% url 'main:list' %}">
+                  <h2>Cписок Рецептов</h2>
+                </a>
+              </li>
+            </ul>
+          {% endwith %}
+        </div>
+      </nav>
+  </header>
+</body>
+</html>
