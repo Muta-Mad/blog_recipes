@@ -3,7 +3,7 @@ from django.db import models
 
 class Recipe(models.Model):
     title = models.CharField('Название', max_length=20)
-    recipes = models.TextField(verbose_name='Рецепт', max_length=250)
+    recipes = models.TextField(verbose_name='Рецепт')
     author = models.CharField(verbose_name='Автор', max_length=20)
 
     def __str__(self):

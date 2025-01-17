@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>{{ recipe.recipes }}</h2>
+  <h1>{{ recipe.title }}</h1>
+  <h3>{{ recipe.recipes }}</h3>
+  <br>
+  <H2>Автор:</H2>
+  <h5>{{ recipe.author }}</h5>
+
 {% endblock %}
