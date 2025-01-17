@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Рецепты</h1>
+    {% for recipe in recipe %}
+    <p> {{ recipe.recipes|truncatechars:10 }}</p>
+    {% endfor %}
+{% endblock %}
+

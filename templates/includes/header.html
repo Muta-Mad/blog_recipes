@@ -1,0 +1,27 @@
+<header>
+    <nav class="navbar shadow-sm">
+      <div class="container">
+        {% with request.resolver_match.view_name as view_name %}
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link {% if view_name == 'home_page:home_page' %} active {% endif %}"
+                href="{% url 'home_page:home_page' %}">
+                Главная
+              </a>
+            </li>
+                <li class="nav-item">
+                  <a class="nav-link {% if view_name == 'main:recipe' %} active {% endif %}"
+                    href="{% url 'main:recipe' %}">
+                    Создать Рецепты
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if view_name == 'main:list' %} active {% endif %}" href="{% url 'main:list' %}">
+                Cписок Рецептов
+              </a>
+            </li>
+          </ul>
+        {% endwith %}
+      </div>
+    </nav>
+</header>
