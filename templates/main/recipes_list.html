@@ -12,6 +12,11 @@
     <ul class="recipe-list">  <!-- Обернули в <ul> с классом recipe-list -->
     {% for recipe in recipe %}
         <li><h4>{{ recipe.recipes|truncatewords:30 }}</h4></li>
+        <div class="col-2">  
+            {% if recipe.img %}
+              <img src="{{ recipe.img.url }}" height=100>
+            {% endif %}
+          </div>
         <div>
             <a href="{% url 'main:detail' recipe.id %}">Подробнее...</a>
         </div>

@@ -1,10 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <hr>
   <h1>{{ recipe.title }}</h1>
   <h3>{{ recipe.recipes }}</h3>
+  {% if recipe.img %}
+    <div>
+      <!-- Картинку сделаем побольше, чем на странице list/: высотой 200px -->
+      <img src="{{ recipe.img.url }}" height="200">
+    </div>
+  {% endif %}
   <br>
   <H2>Автор:</H2>
   <h5>{{ recipe.author }}</h5>
-
-{% endblock %}
+{% endblock content%}

@@ -4,11 +4,10 @@ from .models import Recipe
 
 
 def recipe_create(request, pk=None):
-    form = RecipeForm(request.POST or None)
+    form = RecipeForm(request.POST or None, files=request.FILES or None)
     if form.is_valid():
         form.save()
         return redirect('main:list')
-      
     else:
         form = RecipeForm()
     context = {'form': form}
@@ -25,3 +24,4 @@ def recipes_detail(request, pk):
     recipe = get_object_or_404(Recipe, id=pk)
     context = {'recipe': recipe}
     return render(request, 'main/recipes_detail.html', context)
+

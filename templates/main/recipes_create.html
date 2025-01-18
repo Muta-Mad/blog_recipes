@@ -2,7 +2,7 @@
 {% load django_bootstrap5 %}
 {% block content %}
 <body>
-    <form method="post" enctype="multipart/form-data">
+  <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% bootstrap_button button_type="submit" content="Отправить" %}

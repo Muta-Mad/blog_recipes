@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-#7b7u8!_)!a+r=v*m0!ncvebuqevn(kof0z#3f7fjf+ov9%3$6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+MEDIA_ROOT = BASE_DIR / 'media'
+
 ALLOWED_HOSTS = []
 
 
