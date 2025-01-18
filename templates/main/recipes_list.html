@@ -7,18 +7,19 @@
             padding-left: 0; /* Убирает отступ слева, который браузер добавляет по умолчанию */
         }
     </style>
-
-    <h1>Рецепты</h1>
     <ul class="recipe-list">  <!-- Обернули в <ul> с классом recipe-list -->
     {% for recipe in recipe %}
+        <li><h3>{{recipe.title }} </h3></li>
         <li><h4>{{ recipe.recipes|truncatewords:30 }}</h4></li>
+
         <div class="col-2">  
             {% if recipe.img %}
               <img src="{{ recipe.img.url }}" height=100>
             {% endif %}
           </div>
+          <i><h7>Автор: {{recipe.author }} </h7></i>
         <div>
-            <a href="{% url 'main:detail' recipe.id %}">Подробнее...</a>
+            <a href="{% url 'main:delete' recipe.id %}">Удалить</a> | <a href="{% url 'main:detail' recipe.id %}">Подробнее...</a>
         </div>
     {% endfor %}
     </ul>

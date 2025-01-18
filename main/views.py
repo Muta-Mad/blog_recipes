@@ -1,7 +1,10 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from .forms import RecipeForm
 from .models import Recipe
-
+from django.views.generic import (
+    DeleteView, UpdateView
+)
+from django.urls import reverse_lazy
 
 def recipe_create(request, pk=None):
     form = RecipeForm(request.POST or None, files=request.FILES or None)
@@ -25,3 +28,8 @@ def recipes_detail(request, pk):
     context = {'recipe': recipe}
     return render(request, 'main/recipes_detail.html', context)
 
+
+class RecipeDeleteView(DeleteView):
+    model = Recipe
+    success_url = reverse_lazy('main:list')
+    template_name = 'main/recipe_delete.html'
